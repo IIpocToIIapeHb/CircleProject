@@ -10,25 +10,28 @@ public class DataReader {
     public List<String> read(String FilePath) {
 
         BufferedReader bufferedReader = null;
-        List<String> lines = null;
+        List<String> lines = new ArrayList<String>();
 
         try {
 
-            FileReader fr = new FileReader(FilePath);
-            bufferedReader = new BufferedReader(fr);
+            FileReader fileReader = new FileReader(FilePath);
+            bufferedReader = new BufferedReader(fileReader);
 
-            lines = new ArrayList<String>();
+            String line = bufferedReader.readLine();
 
-            String line;
-
-            while ((line = bufferedReader.readLine()) != null) {
+            while (line != null) {
                 if (!line.isEmpty()) {
                     lines.add(line);
                 }
+                line = bufferedReader.readLine();
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("Problems with file");
+            try {
+                throw new DataException(e);
+            } catch (DataException ex) {
+                ex.printStackTrace();
+            }
 
         } finally {
 

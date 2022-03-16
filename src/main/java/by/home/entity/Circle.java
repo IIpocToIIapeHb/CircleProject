@@ -3,12 +3,11 @@ package by.home.entity;
 public class Circle {
 
     private Point point;
-    private double radios;
+    private double radius;
 
     public Circle(Point point, double radios) {
-        super();
         this.point = point;
-        this.radios = radios;
+        this.radius = radios;
     }
 
     public Point getPoint() {
@@ -19,12 +18,12 @@ public class Circle {
         this.point = point;
     }
 
-    public double getRadios() {
-        return radios;
+    public double getRadius() {
+        return radius;
     }
 
-    public void setRadios(double radios) {
-        this.radios = radios;
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
     @Override
@@ -33,33 +32,39 @@ public class Circle {
         int result = 1;
         result = prime * result + ((point == null) ? 0 : point.hashCode());
         long temp;
-        temp = Double.doubleToLongBits(radios);
+        temp = Double.doubleToLongBits(radius);
         result = prime * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Circle other = (Circle) obj;
         if (point == null) {
-            if (other.point != null)
+            if (other.point != null) {
                 return false;
-        } else if (!point.equals(other.point))
+            }
+        } else if (!point.equals(other.point)) {
             return false;
-        if (Double.doubleToLongBits(radios) != Double.doubleToLongBits(other.radios))
+        }
+        if (Double.doubleToLongBits(radius) != Double.doubleToLongBits(other.radius)) {
             return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "[point=" + point + ", radios=" + radios + "]";
+        return this.getClass().getName() + "[point=" + point + ", radios=" + radius + "]";
     }
 
 
