@@ -19,7 +19,7 @@ public class DataReaderTest {
     private final static List<String>  expectedLines = Arrays.asList("2,2,5" , "5,10,-10" , "0,0,2" , "-8,8,5");
 
     @Test
-    public void testReadShouldReturnLinesListWhenFileExists() {
+    public void testReadShouldReturnLinesListWhenFileExists() throws DataException {
         // given
 
         DataReader reader = new DataReader();
@@ -33,20 +33,17 @@ public class DataReaderTest {
     }
 
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
-    @Test(expected = IOException.class)
-    public void testReadShouldReturnExceptiobWhenFileNotExists() throws IOException {
+
+    @Test (expected = DataException.class) //then
+    public void testReadShouldReturnExceptiobWhenFileNotExists() throws  DataException {
 
         // given
         DataReader reader = new DataReader();
 
         // when
-        List<String> lines = reader.read(TEST_FILE_PATH);
+        List<String> lines = reader.read("Error file");
 
-        // then
-        exception.expect(IOException.class);
     }
 
 }

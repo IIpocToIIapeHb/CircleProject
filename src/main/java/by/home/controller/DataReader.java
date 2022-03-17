@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataReader {
-    public List<String> read(String FilePath) {
+    public List<String> read(String FilePath) throws DataException {
 
         BufferedReader bufferedReader = null;
         List<String> lines = new ArrayList<String>();
@@ -20,18 +20,13 @@ public class DataReader {
             String line = bufferedReader.readLine();
 
             while (line != null) {
-                if (!line.isEmpty()) {
-                    lines.add(line);
-                }
+                lines.add(line);
                 line = bufferedReader.readLine();
             }
 
         } catch (IOException e) {
-            try {
-                throw new DataException(e);
-            } catch (DataException ex) {
-                ex.printStackTrace();
-            }
+
+            throw new DataException("file error", e);
 
         } finally {
 
