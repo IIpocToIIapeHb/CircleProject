@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 
 public class CircleValidator {
 
-    public Boolean isCircle(String line) {
+    private static final Pattern PATTERN = Pattern.compile("([\\-]?[\\d]+[\\,]{1}){2}([\\-]?[\\d]+)");
 
-        Pattern pattern = Pattern.compile("([\\-]?[\\d]+[\\,]{1}){2}([\\-]?[\\d]+)");
-        Matcher matcher = pattern.matcher(line);
+    public boolean isCircle(String line) {
+        Matcher matcher = PATTERN.matcher(line);
         boolean result = matcher.matches();
         return result;
     }

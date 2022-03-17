@@ -6,20 +6,19 @@ import static org.junit.Assert.assertEquals;
 
 public class CircleValidatorTest {
 
-    private static final String TRUE_CIRCLE_LINE = "2,3,4";
-    private static final String FALSE_CIRCLE_LINE_WHEN_WRONG_LINE = "2,4,4,";
-    private static final String FALSE_CIRCLE_LINE_WHEN_EMPTY_LINE = "";
-    private static final String FALSE_CIRCLE_LINE_WHEN_NULL_LINE = null;
-
+    private static final String VALID_lINE = "2,3,4";
+    private static final String INVALID_LINE = "2,4,4,";
+    private static final String EMPTY_LINE = "";
+    private static final String NULL_LINE = null;
 
     @Test
-    public void testIsCircleShouldBeTrueWhenStringCircle(){
+    public void testIsCircleShouldBeTrueWhenStringCircle() {
 
         //given
         CircleValidator circleValidator = new CircleValidator();
 
         //when
-       Boolean realIsCircle =  circleValidator.isCircle(TRUE_CIRCLE_LINE);
+        Boolean realIsCircle = circleValidator.isCircle(VALID_lINE);
 
         //then
         assertEquals(true, realIsCircle);
@@ -27,13 +26,13 @@ public class CircleValidatorTest {
     }
 
     @Test
-    public void testIsCircleShouldBeTrueWhenStringNotCircle(){
+    public void testIsCircleShouldBeTrueWhenStringNotCircle() {
 
         //given
         CircleValidator circleValidator = new CircleValidator();
 
         //when
-        Boolean realIsCircle =  circleValidator.isCircle(FALSE_CIRCLE_LINE_WHEN_WRONG_LINE);
+        Boolean realIsCircle = circleValidator.isCircle(INVALID_LINE);
 
         //then
         assertEquals(false, realIsCircle);
@@ -41,13 +40,13 @@ public class CircleValidatorTest {
     }
 
     @Test
-    public void testIsCircleShouldBeTrueWhenStringEmpty(){
+    public void testIsCircleShouldBeTrueWhenStringEmpty() {
 
         //given
         CircleValidator circleValidator = new CircleValidator();
 
         //when
-        Boolean realIsCircle =  circleValidator.isCircle(FALSE_CIRCLE_LINE_WHEN_EMPTY_LINE);
+        Boolean realIsCircle = circleValidator.isCircle(EMPTY_LINE);
 
         //then
         assertEquals(false, realIsCircle);
@@ -55,13 +54,13 @@ public class CircleValidatorTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void testIsCircleShouldNullPointerException(){
+    public void testIsCircleShouldNullPointerException() {
 
         //given
         CircleValidator circleValidator = new CircleValidator();
 
         //when
-        Boolean realIsCircle =  circleValidator.isCircle(FALSE_CIRCLE_LINE_WHEN_NULL_LINE);
+        Boolean realIsCircle = circleValidator.isCircle(NULL_LINE);
 
     }
 
