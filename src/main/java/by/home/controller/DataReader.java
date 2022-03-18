@@ -42,7 +42,5 @@ public class DataReader {
         return lines;
     }
 
-
-
 }
 
