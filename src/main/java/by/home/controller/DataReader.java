@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataReader {
+
     public List<String> read(String FilePath) throws DataException {
 
         BufferedReader bufferedReader = null;
@@ -40,6 +41,8 @@ public class DataReader {
         }
         return lines;
     }
+
+
 
 }
 
