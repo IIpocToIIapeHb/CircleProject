@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DataReader {
 
     private final static Logger LOGGER = Logger.getLogger(DataReader.class);
