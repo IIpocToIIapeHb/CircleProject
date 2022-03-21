@@ -3,11 +3,14 @@ package by.home.controller;
 import by.home.entity.Circle;
 import by.home.entity.Point;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.when;
 
 public class DirectionTest {
 
@@ -22,7 +25,20 @@ public class DirectionTest {
     public void testReadShouldReturnCirclesList() throws DataException, RadiusException {
 
         //given
-        Direction direction = new Direction();
+        DataReader dataReader = Mockito.mock(DataReader.class);
+        when(dataReader.read(anyString())).thenReturn(Arrays.asList("2,2,5","5,10,10", "0,0,2", "-8,8,5"));
+
+        CircleValidator circleValidator = Mockito.mock(CircleValidator.class);
+        when(circleValidator.isCircle(anyString())).thenReturn(true);
+
+        CircleCreator circleCreator = Mockito.mock(CircleCreator.class);
+        when(circleCreator.create(anyString())).thenReturn(new Circle(new Point(2, 2), 5))
+                                               .thenReturn(new Circle(new Point(5, 10), 10))
+                                               .thenReturn(new Circle(new Point(0, 0), 2))
+                                               .thenReturn(new Circle(new Point(-8, 8), 5));
+
+
+        Direction direction = new Direction(dataReader,circleValidator,circleCreator);
 
         //when
         List<Circle> realCircles = direction.read(TEST_FILE_PATH);

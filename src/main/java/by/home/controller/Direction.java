@@ -11,15 +11,15 @@ public class Direction {
     private CircleValidator circleValidator;
     private CircleCreator circleCreator;
 
-    public Direction() {
-        dataReader = new DataReader();
-        circleValidator = new CircleValidator();
-        circleCreator = new CircleCreator();
+    public Direction(DataReader dataReade, CircleValidator circleValidator, CircleCreator circleCreator) {
+        this.dataReader = new DataReader();
+        this.circleValidator = new CircleValidator();
+        this.circleCreator = new CircleCreator();
     }
 
-    public List<Circle> read(String Filepath) throws DataException, RadiusException {
+    public List<Circle> read(String filepath) throws DataException, RadiusException {
 
-        List<String> lines = dataReader.read(Filepath);
+        List<String> lines = dataReader.read(filepath);
         List<Circle> circles = new ArrayList<Circle>();
 
         for (String line : lines) {
