@@ -19,8 +19,6 @@ public class CircleCreator {
             throw new RadiusException("Radius is negative");
         }
 
-
-
         Circle circle = new Circle(point, radius);
 
         return circle;
