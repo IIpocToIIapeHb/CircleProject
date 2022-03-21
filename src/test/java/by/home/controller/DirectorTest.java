@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 
 public class DirectorTest {
 
-    private final static String TEST_FILE_PATH = "./src/test/resources/testFile.txt";
+    private final static String TEST_FILE_PATH = "testPath";
     private final static List<Circle> EXPECTED_CIRCLES = Arrays.asList(
             new Circle(new Point(2, 2), 5),
             new Circle(new Point(5, 10), 10),
@@ -32,10 +32,10 @@ public class DirectorTest {
         when(circleValidator.isCircle(anyString())).thenReturn(true);
 
         CircleCreator circleCreator = Mockito.mock(CircleCreator.class);
-        when(circleCreator.create(anyString())).thenReturn(new Circle(new Point(2, 2), 5))
-                                               .thenReturn(new Circle(new Point(5, 10), 10))
-                                               .thenReturn(new Circle(new Point(0, 0), 2))
-                                               .thenReturn(new Circle(new Point(-8, 8), 5));
+        when(circleCreator.create("2,2,5")).thenReturn(new Circle(new Point(2, 2), 5));
+        when(circleCreator.create("5,10,10")).thenReturn(new Circle(new Point(5, 10), 10));
+        when(circleCreator.create("0,0,2")).thenReturn(new Circle(new Point(0, 0), 2));
+        when(circleCreator.create("-8,8,5")).thenReturn(new Circle(new Point(-8, 8), 5));
 
 
         Director director = new Director(dataReader,circleValidator,circleCreator);
