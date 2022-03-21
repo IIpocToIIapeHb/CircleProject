@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
 
-public class DirectionTest {
+public class DirectorTest {
 
     private final static String TEST_FILE_PATH = "./src/test/resources/testFile.txt";
     private final static List<Circle> EXPECTED_CIRCLES = Arrays.asList(
@@ -38,10 +38,10 @@ public class DirectionTest {
                                                .thenReturn(new Circle(new Point(-8, 8), 5));
 
 
-        Direction direction = new Direction(dataReader,circleValidator,circleCreator);
+        Director director = new Director(dataReader,circleValidator,circleCreator);
 
         //when
-        List<Circle> realCircles = direction.read(TEST_FILE_PATH);
+        List<Circle> realCircles = director.read(TEST_FILE_PATH);
 
         //then
         assertEquals(EXPECTED_CIRCLES, realCircles);
