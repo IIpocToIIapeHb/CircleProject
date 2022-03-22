@@ -27,7 +27,6 @@ public class Director {
             LOGGER.info("Programm start");
             List<String> lines = dataReader.read(filepath);
 
-
             for (String line : lines) {
                 if (circleValidator.isCircle(line)) {
                     Circle circle = circleCreator.create(line);
