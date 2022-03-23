@@ -1,6 +1,12 @@
 package by.home.logic;
 
+import by.home.controller.DataReader;
 import by.home.entity.Circle;
+import by.home.entity.Point;
+import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
 
@@ -14,22 +20,29 @@ public class Calculator {
         return circlePerimetr;
     }
 
-    public boolean isCrossingAxis(Circle circle, double distance, Axis axis) {
-        boolean result = true;
-
-        double[] crossing = null;
-
+    public boolean isCrossingAxisOnDistance(Circle circle, double distance, Axis axis) {
+        List<Point> crossingPointsWithAxis = new ArrayList<Point>();
+        boolean result = false;
         switch (axis) {
             case OX:
-                crossing = calculatedistanceFromZeroToCrossingCircleWithOX(circle);
-                if (distance == Math.abs(crossing[0]) && distance == Math.abs(crossing[1]))
-                    result = true;
-                break;
-            case OY:
-                crossing = calculatedistanceFromZeroToCrossingCircleWithOX(circle);
-                if (distance == Math.abs(crossing[0]) && distance == Math.abs(crossing[1]))
-                    result = true;
 
+                crossingPointsWithAxis = calculatePointsOfCrossingCircleWithOX(circle);
+                if (distance == Math.abs(crossingPointsWithAxis.get(0).getX())
+                        || distance == Math.abs(crossingPointsWithAxis.get(1).getX())) ;
+            {
+                result = false;
+            }
+            break;
+            case OY:
+                crossingPointsWithAxis = calculatePointsOfCrossingCircleWithOY(circle);
+                if (distance == Math.abs(crossingPointsWithAxis.get(0).getY())
+                        || distance == Math.abs(crossingPointsWithAxis.get(1).getY())) ;
+            {
+                result = false;
+            }
+            break;
+            default:
+                throw new UnsupportedOperationException("There is know this this type:" + axis);
         }
         return result;
     }
@@ -40,24 +53,42 @@ public class Calculator {
         return lengthOfHalfChord;
     }
 
-    private double[] calculatedistanceFromZeroToCrossingCircleWithOX(Circle circle) {
+    private List<Point> calculatePointsOfCrossingCircleWithOX(Circle circle) {
+
+        List<Point> crossingPoints = new ArrayList<Point>();
 
         double distanceFromCenterToAxis = Math.abs(circle.getPoint().getY());
+
         double lengthOfHalfChordFormedByAxis = calculateLengthOfHalfChord(circle, distanceFromCenterToAxis);
         double crossing1 = circle.getPoint().getX() + lengthOfHalfChordFormedByAxis;
         double crossing2 = circle.getPoint().getX() - lengthOfHalfChordFormedByAxis;
-        double[] result = {crossing1, crossing2};
-        return result;
+
+        Point point1 = new Point(crossing1, 0);
+        Point point2 = new Point(crossing2, 0);
+
+        crossingPoints.add(point1);
+        crossingPoints.add(point2);
+
+        return crossingPoints;
     }
 
-    private double[] calculatedistanceFromZeroToCrossingCircleWithOY(Circle circle) {
+    private List<Point> calculatePointsOfCrossingCircleWithOY(Circle circle) {
+
+        List<Point> crossingPoints = new ArrayList<Point>();
 
         double distanceFromCenterToAxis = Math.abs(circle.getPoint().getX());
+
         double lengthOfHalfChordFormedByAxis = calculateLengthOfHalfChord(circle, distanceFromCenterToAxis);
         double crossing1 = circle.getPoint().getY() + lengthOfHalfChordFormedByAxis;
         double crossing2 = circle.getPoint().getY() - lengthOfHalfChordFormedByAxis;
-        double[] result = {crossing1, crossing2};
-        return result;
+
+        Point point1 = new Point(0, crossing1);
+        Point point2 = new Point(0, crossing2);
+
+        crossingPoints.add(point1);
+        crossingPoints.add(point2);
+
+        return crossingPoints;
     }
 
 
