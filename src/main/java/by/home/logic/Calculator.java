@@ -25,7 +25,6 @@ public class Calculator {
         boolean result = false;
         switch (axis) {
             case OX:
-
                 crossingPointsWithAxis = calculatePointsOfCrossingCircleWithOX(circle);
                 if (distance == Math.abs(crossingPointsWithAxis.get(0).getX())
                         || distance == Math.abs(crossingPointsWithAxis.get(1).getX())) ;
