@@ -55,13 +55,15 @@ public class Calculator {
 
     private List<Point> calculatePointsOfCrossingCircleWithOX(Circle circle) {
 
+        Point centerPoint = circle.getPoint();
+
         List<Point> crossingPoints = new ArrayList<Point>();
 
-        double distanceFromCenterToAxis = Math.abs(circle.getPoint().getY());
+        double distanceFromCenterToAxis = Math.abs(centerPoint.getY());
 
         double lengthOfHalfChordFormedByAxis = calculateLengthOfHalfChord(circle, distanceFromCenterToAxis);
-        double crossing1 = circle.getPoint().getX() + lengthOfHalfChordFormedByAxis;
-        double crossing2 = circle.getPoint().getX() - lengthOfHalfChordFormedByAxis;
+        double crossing1 = centerPoint.getX() + lengthOfHalfChordFormedByAxis;
+        double crossing2 = centerPoint.getX() - lengthOfHalfChordFormedByAxis;
 
         Point point1 = new Point(crossing1, 0);
         Point point2 = new Point(crossing2, 0);
@@ -74,13 +76,15 @@ public class Calculator {
 
     private List<Point> calculatePointsOfCrossingCircleWithOY(Circle circle) {
 
+        Point centerPoint = circle.getPoint();
+
         List<Point> crossingPoints = new ArrayList<Point>();
 
-        double distanceFromCenterToAxis = Math.abs(circle.getPoint().getX());
+        double distanceFromCenterToAxis = Math.abs(centerPoint.getX());
 
         double lengthOfHalfChordFormedByAxis = calculateLengthOfHalfChord(circle, distanceFromCenterToAxis);
-        double crossing1 = circle.getPoint().getY() + lengthOfHalfChordFormedByAxis;
-        double crossing2 = circle.getPoint().getY() - lengthOfHalfChordFormedByAxis;
+        double crossing1 = centerPoint.getY() + lengthOfHalfChordFormedByAxis;
+        double crossing2 = centerPoint.getY() - lengthOfHalfChordFormedByAxis;
 
         Point point1 = new Point(0, crossing1);
         Point point2 = new Point(0, crossing2);
