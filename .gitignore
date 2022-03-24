@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /.idea/
 /src/.idea/
 /src/main/main.iml
@@ -7,3 +8,6 @@
 /target/classes/
 /target/test-classes/
 /target/classes/log4j.properties
+=======
+/target/
+>>>>>>> origin/init
