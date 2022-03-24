@@ -1,0 +1,9 @@
+/.idea/
+/src/.idea/
+/src/main/main.iml
+/src/test/test.iml
+/target/Circle.iml
+/target/
+/target/classes/
+/target/test-classes/
+/target/classes/log4j.properties
