@@ -29,7 +29,7 @@ public class Calculator {
                 if (distance == Math.abs(crossingPointsWithAxis.get(0).getX())
                         || distance == Math.abs(crossingPointsWithAxis.get(1).getX())) ;
             {
-                result = false;
+                result = true;
             }
             break;
             case OY:
@@ -37,7 +37,7 @@ public class Calculator {
                 if (distance == Math.abs(crossingPointsWithAxis.get(0).getY())
                         || distance == Math.abs(crossingPointsWithAxis.get(1).getY())) ;
             {
-                result = false;
+                result = true;
             }
             break;
             default:
