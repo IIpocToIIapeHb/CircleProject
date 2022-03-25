@@ -15,35 +15,33 @@ public class Calculator {
         return circleArea;
     }
 
-    public double calculatePerimetr(Circle circle) {
-        double circlePerimetr = 2 * Math.PI * circle.getRadius();
-        return circlePerimetr;
+    public double calculatePerimeter(Circle circle) {
+        double circlePerimeter = 2 * Math.PI * circle.getRadius();
+        return circlePerimeter;
     }
 
     public boolean isCrossingAxisOnDistance(Circle circle, double distance, Axis axis) {
-        List<Point> crossingPointsWithAxis = new ArrayList<Point>();
-        boolean result = false;
+        List<Point> crossingPointsWithAxis;
+        boolean result;
         switch (axis) {
             case OX:
                 crossingPointsWithAxis = calculatePointsOfCrossingCircleWithOX(circle);
-                if (distance == Math.abs(crossingPointsWithAxis.get(0).getX())
-                        || distance == Math.abs(crossingPointsWithAxis.get(1).getX())) ;
-            {
-                result = true;
-            }
+                result = isSameDouble(distance,Math.abs(crossingPointsWithAxis.get(0).getX()))
+                        || isSameDouble(distance,Math.abs(crossingPointsWithAxis.get(1).getX()));
             break;
             case OY:
                 crossingPointsWithAxis = calculatePointsOfCrossingCircleWithOY(circle);
-                if (distance == Math.abs(crossingPointsWithAxis.get(0).getY())
-                        || distance == Math.abs(crossingPointsWithAxis.get(1).getY())) ;
-            {
-                result = true;
-            }
+                result=isSameDouble(distance,Math.abs(crossingPointsWithAxis.get(0).getY()))
+                        || isSameDouble(distance,Math.abs(crossingPointsWithAxis.get(1).getY()));
             break;
             default:
                 throw new UnsupportedOperationException("There is know this this type:" + axis);
         }
         return result;
+    }
+
+    private boolean isSameDouble(double distance1, double distance2){
+        return Math.abs(distance1-distance2)<0.01;
     }
 
     private double calculateLengthOfHalfChord(Circle circle, double distanceFromCenterToChord) {

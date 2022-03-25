@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Director {
 
@@ -29,12 +30,14 @@ public class Director {
 
             for (String line : lines) {
                 if (circleValidator.isCircle(line)) {
-                    Circle circle = circleCreator.create(line);
-                    circles.add(circle);
+                    Optional<Circle> circle = circleCreator.create(line);
+                    if (circle.isPresent()) {
+                        circles.add(circle.get());
+                    }
                 }
             }
             LOGGER.info("Circles read = " + circles.size());
-        }catch(DataException | RadiusException e){
+        }catch(DataException e){
             LOGGER.error(e.getMessage(),e);
         }
         return circles;

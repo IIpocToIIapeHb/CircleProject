@@ -22,7 +22,7 @@ public class DirectorTest {
             new Circle(new Point(-8, 8), 5));
 
     @Test
-    public void testReadShouldReturnCirclesList() throws DataException, RadiusException {
+    public void testReadShouldReturnCirclesList() throws DataException, ValidationException {
 
         //given
         DataReader dataReader = Mockito.mock(DataReader.class);
