@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
@@ -32,10 +33,10 @@ public class DirectorTest {
         when(circleValidator.isCircle(anyString())).thenReturn(true);
 
         CircleCreator circleCreator = Mockito.mock(CircleCreator.class);
-        when(circleCreator.create("2,2,5")).thenReturn(new Circle(new Point(2, 2), 5));
-        when(circleCreator.create("5,10,10")).thenReturn(new Circle(new Point(5, 10), 10));
-        when(circleCreator.create("0,0,2")).thenReturn(new Circle(new Point(0, 0), 2));
-        when(circleCreator.create("-8,8,5")).thenReturn(new Circle(new Point(-8, 8), 5));
+        when(circleCreator.create("2,2,5")).thenReturn(Optional.of(new Circle(new Point(2, 2), 5)));
+        when(circleCreator.create("5,10,10")).thenReturn(Optional.of(new Circle(new Point(5, 10), 10)));
+        when(circleCreator.create("0,0,2")).thenReturn(Optional.of(new Circle(new Point(0, 0), 2)));
+        when(circleCreator.create("-8,8,5")).thenReturn(Optional.of(new Circle(new Point(-8, 8), 5)));
 
 
         Director director = new Director(dataReader,circleValidator,circleCreator);

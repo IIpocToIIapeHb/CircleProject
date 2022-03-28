@@ -66,3 +66,5 @@ java.io.FileNotFoundException: Error file (Не удается найти ука
 	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)
+2022-03-25 09:01:47 WARN  CircleCreator:27 - negative radius= -3.0
+2022-03-25 09:03:40 WARN  CircleCreator:27 - negative radius= -3.0

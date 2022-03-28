@@ -21,16 +21,17 @@ public class CircleCreatorTest {
         //when
         Optional<Circle> realCircle = circleCreator.create(CIRCLE_LINE_WITH_POSITIVE_RADIUS);
         //then
-        assertEquals(EXPEXTED_CIRCLE, realCircle);
+        assertEquals(Optional.of(EXPEXTED_CIRCLE), realCircle);
 
     }
 
-    @Test(expected = ValidationException.class) //then
-    public void testCreateSholdCreateCircleWhenRadiosNegative() throws ValidationException {
+    @Test
+    public void testCreateSholdCreateCircleWhenRadiosNegative() {
         //given
         CircleCreator circleCreator = new CircleCreator();
         //when
         Optional<Circle> realCircle = circleCreator.create(CIRCLE_LINE_WITH_NEGATIVE_RADIUS);
-
+        //then
+        assertEquals( Optional.empty(), realCircle);
     }
 }
