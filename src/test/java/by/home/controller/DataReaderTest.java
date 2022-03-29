@@ -36,7 +36,7 @@ public class DataReaderTest {
 
 
     @Test (expected = DataException.class) //then
-    public void testReadShouldReturnExceptiobWhenFileNotExists() throws  DataException {
+    public void testReadShouldReturnExceptionWhenFileNotExists() throws  DataException {
 
         // given
         DataReader reader = new DataReader();

@@ -69,3 +69,4 @@ java.io.FileNotFoundException: Error file (Не удается найти ука
 2022-03-25 09:01:47 WARN  CircleCreator:27 - negative radius= -3.0
 2022-03-25 09:03:40 WARN  CircleCreator:27 - negative radius= -3.0
 2022-03-28 11:47:34 WARN  CircleCreator:27 - negative radius= -3.0
+2022-03-28 22:10:53 WARN  CircleCreator:27 - negative radius= -3.0

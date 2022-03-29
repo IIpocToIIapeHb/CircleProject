@@ -12,13 +12,13 @@ public class CircleObservable extends Circle implements Observable {
 
     private  final List<Observer> observers = new ArrayList<>();
 
-    public CircleObservable(Integer id, Point point, double radios) {
+    public CircleObservable(IdGenerator id, Point point, double radios) {
         super(point, radios);
-        this.id = id;
+        this.id = id.getId();
     }
 
     public Integer getId() {
-        return null;
+        return id;
     }
 
     @Override
