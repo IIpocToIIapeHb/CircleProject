@@ -18,10 +18,16 @@ public class Main {
         boolean result = calculator.isCrossingAxisOnDistance(circle,2, Axis.OX);
         System.out.println(result);
 
-        CircleObservable cirCle = new CircleObservable(new IdGenerator(),new Point(1,1), 10);
+        CircleObservable cirCle = new CircleObservable(new IdGenerator(), new Point(1,1), 10);
         CircleStore store = CircleStore.getInstance();
         cirCle.attach(store);
-        cirCle.setPoint(new Point(2, 2));
         cirCle.setRadius(5);
+        System.out.println(cirCle.getId());
+
+        CircleObservable cirCle1 = new CircleObservable(new IdGenerator(), new Point(1,1), 10);
+        CircleStore store1 = CircleStore.getInstance();
+        cirCle1.attach(store1);
+        cirCle1.setRadius(6);
+        System.out.println(cirCle1.getId());
     }
 }
