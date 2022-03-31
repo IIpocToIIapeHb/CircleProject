@@ -58,7 +58,7 @@ public class Point {
     }
     @Override
     public String toString() {
-        return this.getClass().getName() + "[x=" + x + ", y=" + y + "]";
+        return this.getClass().getSimpleName() + "[x=" + x + ", y=" + y + "]";
     }
 
 

@@ -50,7 +50,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testIsCrossingAxisOnDistanceShouldReturnFalseWhenCircleCrossOXAxisOnDistance() {
+    public void testIsCrossingAxisOnDistanceShouldReturnFalseWhenCircleNotCrossOXAxisOnDistance() {
         //given
         Calculator calculator = new Calculator();
         //when

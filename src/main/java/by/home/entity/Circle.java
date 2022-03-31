@@ -64,7 +64,7 @@ public class Circle {
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "[point=" + point + ", radios=" + radius + "]";
+        return this.getClass().getSimpleName() + "[" + point + ", radios=" + radius + "]";
     }
 
 

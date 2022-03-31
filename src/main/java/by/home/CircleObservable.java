@@ -10,7 +10,7 @@ public class CircleObservable extends Circle implements Observable {
 
     private final Integer id;
 
-    private  final List<Observer> observers = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
 
     public CircleObservable(IdGenerator id, Point point, double radios) {
         super(point, radios);
@@ -22,16 +22,16 @@ public class CircleObservable extends Circle implements Observable {
     }
 
     @Override
-  public void setPoint(Point point) {
+    public void setPoint(Point point) {
         super.setPoint(point);
         notifyObservers();
     }
+
     @Override
     public void setRadius(double radius) {
         super.setRadius(radius);
         notifyObservers();
     }
-
 
     @Override
     public void attach(Observer observer) {
@@ -45,9 +45,15 @@ public class CircleObservable extends Circle implements Observable {
 
     @Override
     public void notifyObservers() {
-        for (Observer observer:observers){
+        for (Observer observer : observers) {
             observer.update(this);
         }
+
+    }
+
+    @Override
+    public String toString() {
+        return "CircleObservable{" + "id=" + id + ", " + super.toString();
 
     }
 }

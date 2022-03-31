@@ -70,3 +70,16 @@ java.io.FileNotFoundException: Error file (Не удается найти ука
 2022-03-25 09:03:40 WARN  CircleCreator:27 - negative radius= -3.0
 2022-03-28 11:47:34 WARN  CircleCreator:27 - negative radius= -3.0
 2022-03-28 22:10:53 WARN  CircleCreator:27 - negative radius= -3.0
+2022-03-30 13:31:26 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification by.home.repository.specifications.QuadrantSpecification@12edcd21
+2022-03-30 13:32:12 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification QuadrantSpecification
+2022-03-30 13:32:42 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification QuadrantSpecification
+2022-03-30 13:33:04 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification QuadrantSpecification{quadrant=I}
+2022-03-30 13:57:09 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification QuadrantSpecification{quadrant=I}
+2022-03-30 13:58:06 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification QuadrantSpecification{quadrant=I}
+2022-03-30 14:00:15 INFO  CircleRepositoryImpl:41 - There is no circle suitable for the specification QuadrantSpecification{quadrant=I}
+2022-03-31 14:27:11 INFO  CircleRepositoryImpl:44 - There is no circle suitable for the specification Mock for Specification, hashCode: 182738614
+2022-03-31 14:28:21 INFO  CircleRepositoryImpl:44 - There is no circle suitable for the specification Mock for Specification, hashCode: 182738614
+2022-03-31 14:30:07 INFO  CircleRepositoryImpl:44 - There is no circle suitable for the specification Mock for Specification, hashCode: 182738614
+2022-03-31 14:30:53 INFO  CircleRepositoryImpl:44 - There is no circle suitable for the specification Mock for Specification, hashCode: 182738614
+2022-03-31 14:31:14 INFO  CircleRepositoryImpl:44 - There is no circle suitable for the specification Mock for Specification, hashCode: 182738614
+2022-03-31 15:10:52 INFO  CircleRepositoryImpl:44 - There is no circle suitable for the specification Mock for Specification, hashCode: 182738614
